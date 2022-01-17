@@ -38,7 +38,7 @@ function addOneForAll(...numbers) {
 }
 
 const val2 = addOneForAll(1, 2, 3, 4);
-console.log(val2);
+//console.log(val2);
 
 
 /**  Task6 **/
@@ -52,12 +52,39 @@ console.log(val2);
  }
 
 const val = getSum(1, 2, 3, 4);
-console.log(val); // 10
+//console.log(val); // 10
 
 /**  Task7 **/
 
  const arrFilt = [1, 'hello', 2, 3, 4, '5', '6', 7, null];
 
- function isNumber(arr){
-   
- }
+     function isNumber(arr){
+       var newArrFilt = arr.filter(function(item){
+         return item > 0;
+       })
+       return newArrFilt;
+     }
+
+//console.log(isNumber(arrFilt));
+
+/**  Task8 **/
+
+
+function arrayTesting(...arr){
+  var count = 0
+  arr.every(function(el, ind){
+    if (!el) {
+      return false
+    } else {
+      return true;
+    }
+
+  })
+}
+
+
+const haveTrueValue = arrayTesting([0, false, null, 1]);  // true
+const dontHaveTrueValue = arrayTesting([0, false, null, 0])  //false 
+
+console.log(haveTrueValue)
+console.log(dontHaveTrueValue)

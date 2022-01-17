@@ -36,5 +36,5 @@ function toInitials(name){
     return initials;
 }
 
-console.log(toInitials('Bill Gates'))// B.G.
-console.log(toInitials('elon mask'))// E.M.
+//console.log(toInitials('Bill Gates'))// B.G.
+//console.log(toInitials('elon mask'))// E.M.
