@@ -24,7 +24,39 @@ function countOccurrences(str, substr) {
    }
 
 
-console.log(countOccurrences(azyxxzyzy, 'zy'));
-console.log(countOccurrences('ababagalamaga', 'ba'));
+//console.log(countOccurrences('azyxxzyzy', 'zy'));
+//console.log(countOccurrences('ababagalamaga', 'ba'));
    
    
+
+
+/** STORAGE
+* Implement function storage:
+*
+* function works with next pattern:
+* const propsStorage = storage();
+* propsStorage.setValue('name', 'Peter');
+* propsStorage.setValue('age', 30);
+* propsStorage.getValue('name'); // Peter
+* propsStorage.getValue('age'); // 30
+* propsStorage.setValue('age', 31);
+* propsStorage.getValue('age'); // 31
+* propsStorage.getValue('occupation'); //undefined
+*
+*/
+
+
+function storage() {
+    return {
+        setValue: function(name, value){
+            window.localStorage.setItem(name, JSON.stringify(value))
+        },
+        getValue: function(name){
+            window.localStorage.getItem(name);
+        }
+    }
+   
+}
+const propsStorage = storage();
+propsStorage.setValue('name', 'Peter');
+
