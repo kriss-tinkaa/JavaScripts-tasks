@@ -112,10 +112,10 @@ function calculateRoundedRating(rating) {
     return Math.round(rating / step) * step;
 }
 
-console.log(calculateRoundedRating(1.2499999))
-console.log(calculateRoundedRating(1.92))
-console.log(calculateRoundedRating(3.666))
-console.log(calculateRoundedRating(4.299999))
+//console.log(calculateRoundedRating(1.2499999))
+//console.log(calculateRoundedRating(1.92))
+//console.log(calculateRoundedRating(3.666))
+//console.log(calculateRoundedRating(4.299999))
 
 
 
@@ -136,10 +136,8 @@ console.log(calculateRoundedRating(4.299999))
 
 
 function countWords(text) {
-
     var counter = 0;
-
+    text = text.replace(/\s+/g, ' ').trim()
     return text.split(' ').length
-
 }
-
+console.log(countWords('   You  area programmer '))
