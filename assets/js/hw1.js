@@ -38,11 +38,11 @@ function reverse(arr){
   }
   return newArr;
 } 
-console.log(reverse( [1,2,3,4]))
+//console.log(reverse( [1,2,3,4]))
 
 
 /**  Task 5 **/
 //Чему равен typeof null в режиме use strict?
-console.log(typeof null)
+//console.log(typeof null)
 // object
 
