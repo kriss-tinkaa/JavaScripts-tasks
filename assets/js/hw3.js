@@ -10,10 +10,17 @@
 */
 
 function isArrayEmpty(arr){
-    if (typeof arr != "undefined") {
-        return true
-    } else {
-        return false
+    if (Object.keys(arr).length === 0) {
+        return true;
+    } else{
+        for (const name of Object.keys(arr)) {
+            if (arr[name] === undefined) {
+                return true
+            } else {
+                return false
+            }
+          }
+        
     }
 }
 
