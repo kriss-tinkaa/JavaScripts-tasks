@@ -137,7 +137,7 @@ function countWords(text) {
     text = text.replace(/\s+/g, ' ').trim()
     return text.split(' ').length
 }
-console.log(countWords('   You  area programmer '))
+//console.log(countWords('   You  area programmer '))
 
 
 
