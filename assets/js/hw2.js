@@ -176,8 +176,8 @@ function extractYears(text) {
 return newArr
 }
 
-console.log(extractYears(`Usually people who were born in 1995 can find they first job not later than
-in 2020 but also not earlier than in 2012. Number 11999 is not included in
-the result because it's too big. It is out of range between 1900 and 2099.
-`))
+// console.log(extractYears(`Usually people who were born in 1995 can find they first job not later than
+// in 2020 but also not earlier than in 2012. Number 11999 is not included in
+// the result because it's too big. It is out of range between 1900 and 2099.
+// `))
 
