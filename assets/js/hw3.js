@@ -41,9 +41,12 @@ function isArrayEmpty(obj){
             return false;
         }
         for (const key in firstObj){
+            
             if(isObject(firstObj[key]) && isObject(secondObj[key])){
-                isEqual(firstObj[key], secondObj[key]);
+                console.log('test1', firstObj[key], secondObj[key])
+                return isEqual(firstObj[key], secondObj[key]);
             } else if(firstObj[key] !== secondObj[key]){
+                console.log('test2', firstObj[key], secondObj[key])
                 return false;
             }      
         }
@@ -53,9 +56,11 @@ function isArrayEmpty(obj){
    };
 
    const data = { a: 1, b: { c: 1 } };
-   const data2 = { a: 1, b: { c: 1 } };
+   const data2 = { a: 1, b: { c: {1: 2} } };
    const data3 = { a: 1, b: { c: 2 } };
-   console.log(isEqual(data, data2)); // true
+   const data4 = { a: 1, b: { c: { d: 1 } } };
+   const data5 = { a: 1, b: { c: { d: 2 } } };
+   console.log(isEqual(data4, data5)); // true
    console.log(isEqual(data, data3)); // false
 
    /**
@@ -70,8 +75,8 @@ function isArrayEmpty(obj){
         
     };
     
-  const data4 = { a: 1, b: 2 };
-  const data5 = { c: 1, b: 2 };
+  //const data4 = { a: 1, b: 2 };
+  //const data5 = { c: 1, b: 2 };
   //console.log(intersection(data4, data5)); // { b: 2 }
   
   
