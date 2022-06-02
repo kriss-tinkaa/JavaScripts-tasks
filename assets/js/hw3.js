@@ -43,10 +43,11 @@ function isArrayEmpty(obj){
         for (const key in firstObj){
             
             if(isObject(firstObj[key]) && isObject(secondObj[key])){
-                console.log('test1', firstObj[key], secondObj[key])
-                return isEqual(firstObj[key], secondObj[key]);
+                if(!isEqual(firstObj[key], secondObj[key])){
+                    return false;
+                }
+                
             } else if(firstObj[key] !== secondObj[key]){
-                console.log('test2', firstObj[key], secondObj[key])
                 return false;
             }      
         }
@@ -56,12 +57,12 @@ function isArrayEmpty(obj){
    };
 
    const data = { a: 1, b: { c: 1 } };
-   const data2 = { a: 1, b: { c: {1: 2} } };
+   const data2 = { a: 1, b: { c: 1  }};
    const data3 = { a: 1, b: { c: 2 } };
-   const data4 = { a: 1, b: { c: { d: 1 } } };
-   const data5 = { a: 1, b: { c: { d: 2 } } };
-   console.log(isEqual(data4, data5)); // true
-   console.log(isEqual(data, data3)); // false
+   const data4 = { a: 1, b: { c: { d: 1 } }, e: 1 };
+   const data5 = { a: 1, b: { c: { d: 1 } }, e: 2 };
+   //console.log(isEqual(data4, data5)); 
+   //console.log(isEqual(data, data3));
 
    /**
   * Описание задачи: Напишите функцию, которая поверхностно находит пересечения объектов и возвращает объект пересечений.
@@ -72,11 +73,22 @@ function isArrayEmpty(obj){
 */
 
     const intersection = (firstObject, secondObject) => {
+        const firstObjKeys = Object.keys(firstObject);
+        const acc = {}
+        //console.log(firstObjKeys)
+
+        firstObjKeys.forEach(function(key, i, firstObjKeys) {
+            if (firstObject[key] === secondObject[key]){
+                return acc[key] = firstObject[key];
+            }
+          });
+
+          return acc;
         
     };
     
-  //const data4 = { a: 1, b: 2 };
-  //const data5 = { c: 1, b: 2 };
-  //console.log(intersection(data4, data5)); // { b: 2 }
+  const data6 = { a: 1, b: 2 };
+  const data7 = { c: 1, b: 2 };
+  console.log(intersection(data6, data7)); // { b: 2 }
   
   
