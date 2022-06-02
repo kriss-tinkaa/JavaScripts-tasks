@@ -10,16 +10,19 @@
 */
 
 function isArrayEmpty(obj){
-    var newArr = Object.keys(obj);
-    if (!Object.keys(newArr).length) {
+    const newArr = Object.values(obj);
+    if (!newArr.length) {
         return true;
     } 
-    return !newArr.map((key) => newArr[key] || newArr[key] === 0 || newArr[key] === false).length
+    return newArr.every((value) => value === '' ||  value === null || isNaN(value) || value === undefined)
 }
 
-//console.log(isArrayEmpty({}))
-//console.log(isArrayEmpty({ a: undefined }))
-//console.log(isArrayEmpty({ a: 1 }))
+// console.log(isArrayEmpty({ }))
+// console.log(isArrayEmpty({ a: undefined }))
+// console.log(isArrayEmpty({ a: '' }))
+// console.log(isArrayEmpty({ a: NaN }))
+// console.log(isArrayEmpty({ a: 1 }))
+// console.log(isArrayEmpty({ a: 1, b: undefined}))
 
 
 /** TASK 3.2
@@ -30,23 +33,22 @@ function isArrayEmpty(obj){
   * @returns {boolean}
 */
     const isEqual= (firstObj, secondObj) => {
-        const firstObjName = Object.getOwnPropertyNames(firstObj);
-        const secondObjName = Object.getOwnPropertyNames(secondObj);
-        //console.log(firstObj, secondObj)
+        const firstObjName = Object.keys(firstObj);
+        const secondObjName = Object.keys(secondObj);
+        const isObject = v => v && typeof v === 'object';
 
         if(firstObjName.length !== secondObjName.length){
             return false;
         }
-        for (let i = 0; i < firstObjName.length; i += 1) {
-            const prop = firstObjName[i];
-            const bothAreObjects = typeof(firstObjName[prop]) === 'object' && typeof(secondObjName[prop]) === 'object';
+        for (const key in firstObj){
+            if(isObject(firstObj[key]) && isObject(secondObj[key])){
+                isEqual(firstObj[key], secondObj[key]);
+            } else if(firstObj[key] !== secondObj[key]){
+                return false;
+            }      
+        }
 
-            if ((!bothAreObjects && (firstObjName[prop] !== secondObjName[prop])) 
-            || (bothAreObjects && !isEqual(firstObjName[prop], secondObjName[prop]))) {
-              return false;
-            }
-          }
-          return true;
+        return true;
         
    };
 
@@ -55,4 +57,21 @@ function isArrayEmpty(obj){
    const data3 = { a: 1, b: { c: 2 } };
    console.log(isEqual(data, data2)); // true
    console.log(isEqual(data, data3)); // false
+
+   /**
+  * Описание задачи: Напишите функцию, которая поверхностно находит пересечения объектов и возвращает объект пересечений.
+  * Ожидаемый результат: ({ a: 1, b: 2 }, { c: 1, b: 2 }) => { b: 2 }
+  * @param {Object<string | number>} firstObj - объект с примитивными значениями
+  * @param {Object<string | number>} secondObj - объект с примитивными значениями
+  * @returns {Object}
+*/
+
+    const intersection = (firstObject, secondObject) => {
+        
+    };
+    
+  const data4 = { a: 1, b: 2 };
+  const data5 = { c: 1, b: 2 };
+  //console.log(intersection(data4, data5)); // { b: 2 }
+  
   
