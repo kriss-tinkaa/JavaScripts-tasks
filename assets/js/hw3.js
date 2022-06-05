@@ -75,9 +75,8 @@ function isArrayEmpty(obj){
     const intersection = (firstObject, secondObject) => {
         const firstObjKeys = Object.keys(firstObject);
         const acc = {}
-        //console.log(firstObjKeys)
 
-        firstObjKeys.forEach(function(key, i, firstObjKeys) {
+        firstObjKeys.forEach(function(key) {
             if (firstObject[key] === secondObject[key]){
                 return acc[key] = firstObject[key];
             }
@@ -89,6 +88,6 @@ function isArrayEmpty(obj){
     
   const data6 = { a: 1, b: 2 };
   const data7 = { c: 1, b: 2 };
-  console.log(intersection(data6, data7)); // { b: 2 }
+  //console.log(intersection(data6, data7)); // { b: 2 }
   
   
