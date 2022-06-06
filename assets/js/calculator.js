@@ -1,3 +1,11 @@
+const button = document.getElementById("reverse");
+const container = document.querySelector(".calc");
+
+button.onclick = function(){
+  container.classList.toggle("full");
+}
+
+
 let a = '';
 let b = '';
 let sign = '';
@@ -62,13 +70,13 @@ document.querySelector('.buttons').onclick = (event) => {
          }
          switch(sign){
             case '+':
-                a = (+a) + (+b);
+                a = ((+a) + (+b)).toFixed(3);
                 break;
             case '-':
-                a = a - b;
+                a = (a - b).toFixed(3);
                 break;
             case 'X':
-                a = a * b;
+                a = (a * b).toFixed(3);
                 break;    
             case '/':
                 if( b === '0'){
@@ -78,11 +86,65 @@ document.querySelector('.buttons').onclick = (event) => {
                     sign = '';
                     return
                 }
-                a = a / b;
+                a = (a / b).toFixed(3);
+                break; 
+            case '^':
+                a = function(a, b) {
+                    return Math.pow(a, b);
+                  };
                 break; 
          }
          finish = true;
          out.textContent = a;
          console.log(a, b, sign)
+     }
+
+     //if press buttons %
+     if(key === '%'){
+        a = a / 100;
+        out.textContent = a;
+     }
+
+     //if press buttons %
+     if(key === '+/-'){
+        if(b === '' && sign === ''){
+            a = -1 * a;
+            out.textContent = a;
+        } else {
+            b = -1 * b;
+            out.textContent = b;
+        }
+     }
+
+      //if press buttons .
+      if(key === '.'){
+        if(b === '' && sign === ''){
+            a = a;
+            out.textContent = a;
+        } else {
+            b = -1 * b;
+            out.textContent = b;
+        }
+     }
+
+      //if press buttons π
+      if(key === 'π'){
+        if(b === '' && sign === ''){
+            a = Math.PI.toFixed(3);
+            out.textContent = a;
+        } else {
+            b = Math.PI.toFixed(3);
+            out.textContent = b;
+        }
+     } 
+
+    //if press buttons asin
+    if(key === 'asin'){
+        if(b === '' && sign === ''){
+            a = function(a) {
+                return Math.acos(a);
+              };
+            out.textContent = a;
+        }
      }
 }
