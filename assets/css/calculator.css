@@ -18,12 +18,20 @@
     box-shadow: 4px 4px 4px #4f4f4f;
 }
 
+.calc.full{
+    width: 540px;
+    height: 420px;
+}
+
 .calc-screen{
     height: 125px;
     padding: 10px;
     display: grid;
     justify-content: flex-end;
     align-items: flex-end;
+}
+.calc.full .calc-screen{
+    height: 66px;
 }
 
 .calc-screen p{
@@ -36,12 +44,21 @@
     display: grid;
     grid-template-areas: 
         'ac plus-minus percent division'
-        'seven eight nine multi'
-        'four five three minus'
+        'seven eight nine myltiply'
+        'four five six minus'
         'one two three plus'
         'zero zero dot equal';
     grid-gap: 12px;
     justify-content: center;
+}
+
+.calc.full .buttons{
+    grid-template-areas: 
+        'exponentiate pi inverse-sin inverse-cos ac plus-minus percent division'
+        'inverse-tan square-root nth-root sin seven eight nine myltiply'
+        'cos tan log natural-log four five six minus'
+        'cos tan log natural-log one two three plus'
+        'cos2 tan2 log 2natural-log2 zero zero dot equal';
 }
 
 .btn{
@@ -54,6 +71,13 @@
     font-size: 1.5rem;
     cursor: pointer;
     user-select: none;
+}
+
+.calc.full .btn{
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 1.25rem;
 }
 
 .btn:hover{
@@ -71,8 +95,121 @@
     background: #ff9501;
 }
 
+.calc.full .btn.zero,
 .btn.zero{
     grid-area: zero;
     width: 100%;
     border-radius: 34px;
+}
+
+.btn.exponentiate{
+    grid-area: exponentiate;
+}
+.btn.pi{
+    grid-area: pi;
+}
+.btn.inverse-sin{
+    grid-area: inverse-sin;
+}
+.btn.inverse-cos{
+    grid-area: inverse-cos;
+}
+.btn.inverse-tan{
+    grid-area: inverse-tan;
+}
+.btn.square-root{
+    grid-area: square-root;
+}
+.btn.nth-root{
+    grid-area: nth-root;
+}
+.btn.sin{
+    grid-area: sin;
+}
+.btn.cos{
+    grid-area: cos;
+}
+.btn.tan{
+    grid-area: tan;
+}
+.btn.log{
+    grid-area: log;
+}
+.btn.natural-log{
+    grid-area: natural-log;
+}
+.btn.ac{
+    grid-area: ac;
+}
+.btn.plus-minus{
+    grid-area: plus-minus;
+}
+.btn.percent{
+    grid-area: percent;
+}
+.btn.division{
+    grid-area: division;
+}
+.btn.seven{
+    grid-area: seven;
+}
+.btn.eight{
+    grid-area: eight;
+}
+.btn.nine{
+    grid-area: nine;
+}
+.btn.myltiply{
+    grid-area: myltiply;
+}
+.btn.four{
+    grid-area: four;
+}
+.btn.five{
+    grid-area: five;
+}
+.btn.six{
+    grid-area: six;
+}
+.btn.minus{
+    grid-area: minus;
+}
+.btn.one{
+    grid-area: one;
+}
+.btn.two{
+    grid-area: two;
+}
+.btn.three{
+    grid-area: three;
+}
+.btn.plus{
+    grid-area: plus;
+}
+.btn.zero{
+    grid-area: zero;
+}
+.btn.dot{
+    grid-area: dot;
+}
+.btn.equal{
+    grid-area: equal;
+}
+.exponentiate,
+.pi,
+.inverse-sin, 
+.inverse-cos,
+.inverse-tan,
+.square-root,
+.nth-root,
+.sin,
+.cos,
+.tan,
+.log,
+.natural-log{
+    display: none;
+}
+
+.calc.full .btn{
+    display: block;
 }
