@@ -33,11 +33,15 @@ document.querySelector('.buttons').onclick = (event) => {
     if(digit.includes(key)) {
        if(b === '' && sign === ''){
         a += key;
-        out.textContent = a;
+        out.textContent =  a;
        } else if (a !== '' && b !== '' && finish ) {
+        b = key;
+        finish = true;
+        out.textContent = b;
 
        } else {
            b += key;
+           out.textContent = b;
        }
        console.log(a, b, sign);
        return;
@@ -50,4 +54,35 @@ document.querySelector('.buttons').onclick = (event) => {
         console.log(a, b, sign)
         return;
     }
+
+     //if press buttons =
+     if(key === '='){
+         if( b === ''){
+             b = a;
+         }
+         switch(sign){
+            case '+':
+                a = (+a) + (+b);
+                break;
+            case '-':
+                a = a - b;
+                break;
+            case 'X':
+                a = a * b;
+                break;    
+            case '/':
+                if( b === '0'){
+                    out.textContent = 'Error';
+                    a = '';
+                    b = '';
+                    sign = '';
+                    return
+                }
+                a = a / b;
+                break; 
+         }
+         finish = true;
+         out.textContent = a;
+         console.log(a, b, sign)
+     }
 }
