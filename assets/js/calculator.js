@@ -85,4 +85,21 @@ document.querySelector('.buttons').onclick = (event) => {
          out.textContent = a;
          console.log(a, b, sign)
      }
+
+     //if press buttons %
+     if(key === '%'){
+        a = a / 100;
+        out.textContent = a;
+     }
+
+     //if press buttons %
+     if(key === '+/-'){
+        if(b === '' && sign === ''){
+            a = -1 * a;
+            out.textContent = a;
+        } else {
+            b = -1 * b;
+            out.textContent = b;
+        }
+     }
 }
