@@ -141,10 +141,12 @@ document.querySelector('.buttons').onclick = (event) => {
     //if press buttons asin
     if(key === 'asin'){
         if(b === '' && sign === ''){
-            a = function(a) {
-                return Math.acos(a);
-              };
+            a = Math.acos(a);
             out.textContent = a;
         }
      }
 }
+
+
+
+let result = document.getElementById
